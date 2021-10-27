@@ -36,6 +36,12 @@ const ProductSchema = new Schema({
 			},
 		},
 	],
+	CATEGORIES: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: 'Category',
+		},
+	],
 	TAGS: [
 		{
 			type: Schema.Types.ObjectId,

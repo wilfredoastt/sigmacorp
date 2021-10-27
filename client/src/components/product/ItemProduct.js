@@ -12,7 +12,7 @@ const ItemProduct = ({ product }) => {
 			{product.TAGS.map((tag, index) => (
 				<Tag key={tag._id} tag={tag} index={index} />
 			))}
-			<Link to={`${url}/${product._id}`}>
+			<Link to={`/detail/${product._id}`}>
 				Ver Detalle de Producto {product.NAME}
 			</Link>
 		</div>

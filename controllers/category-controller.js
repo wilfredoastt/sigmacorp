@@ -3,7 +3,7 @@ const Category = require('../models/category-model');
 let categoryController = {
 	getCategories: async (req, res) => {
 		try {
-			const categories = await Category.find();
+			const categories = await Category.find({ IS_PARENT: true });
 			res.send({
 				status: 200,
 				data: categories,

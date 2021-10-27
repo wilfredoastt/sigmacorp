@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import Category from './components/category/Category';
 import Product from './components/product/Product';
+import ProductDetail from './components/productDetail/ProductDetail';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -39,6 +40,9 @@ const App = () => {
 					</Route>
 					<Route path="/categories/:_id">
 						<Product />
+					</Route>
+					<Route path="/detail/:_id">
+						<ProductDetail />
 					</Route>
 				</Switch>
 			</Router>

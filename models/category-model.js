@@ -17,10 +17,20 @@ const CategorySchema = new Schema({
 		trim: true,
 		required: true,
 	},
+	IS_PARENT: {
+		type: Boolean,
+		required: true,
+	},
 	PRODUCTS: [
 		{
 			type: Schema.Types.ObjectId,
 			ref: 'Product',
+		},
+	],
+	SUB_CATEGORIES: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: 'Category',
 		},
 	],
 });

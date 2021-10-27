@@ -1,21 +1,17 @@
 const Category = require('../models/category-model');
 const Product = require('../models/product-model');
 const Tag = require('../models/tag-model');
-//const mongoose = require('mongoose');
-//mongoose.set('useFindAndModify', false);
 
 let productController = {
 	getProducts: async (req, res) => {
 		try {
 			let _id = req.params._id;
-			await Category.findOne({ _id })
-				.populate('PRODUCTS')
-				.exec(async (err, category) => {
-					//obtenemos los datos de TAGS
-					for (let product of category.PRODUCTS) {
-						await product.populate('TAGS');
-					}
 
+			await Category.findOne({ _id })
+				.populate({ path: 'PRODUCTS', populate: { path: 'TAGS' } })
+				.populate({ path: 'PRODUCTS', populate: { path: 'CATEGORIES' } })
+				.populate('SUB_CATEGORIES')
+				.exec((err, category) => {
 					if (err)
 						return res.send({
 							status: 400,
