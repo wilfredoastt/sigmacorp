@@ -20,11 +20,11 @@ const Category = ({ categories, handleGetCategories }) => {
 
 const mapStateToProps = (state) => {
 	return {
-		categories: state.category.data,
+		categories: state.category.categories_parent.data,
 	};
 };
 
-const mapDispathToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
 	return {
 		handleGetCategories: () => {
 			dispatch(startGetCategories());
@@ -32,4 +32,4 @@ const mapDispathToProps = (dispatch) => {
 	};
 };
 
-export default connect(mapStateToProps, mapDispathToProps)(Category);
+export default connect(mapStateToProps, mapDispatchToProps)(Category);

@@ -6,6 +6,18 @@ const Api = {
 			.then((response) => response.data);
 	},
 
+	getCategoriesAll: async () => {
+		return await axios
+			.get('/sigmacorp/categories-all')
+			.then((response) => response.data);
+	},
+
+	saveCategory: async (payload) => {
+		return await axios
+			.post('/sigmacorp/save-category', payload)
+			.then((response) => response.data);
+	},
+
 	//PRODUCTS
 	getProducts: async (_id) => {
 		return await axios

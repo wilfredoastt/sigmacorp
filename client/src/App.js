@@ -13,6 +13,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import Category from './components/category/Category';
 import Product from './components/product/Product';
 import ProductDetail from './components/productDetail/ProductDetail';
+import Admin from './components/admin/Admin';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -30,8 +31,9 @@ const App = () => {
 			<Router>
 				<Switch>
 					<Route exact path="/">
-						<div>
+						<div className="grid grid-flow-row">
 							<Link to="/categories">Categorias</Link>
+							<Link to="/admin">Admin</Link>
 							<p>Home</p>
 						</div>
 					</Route>
@@ -43,6 +45,9 @@ const App = () => {
 					</Route>
 					<Route path="/detail/:_id">
 						<ProductDetail />
+					</Route>
+					<Route path="/admin">
+						<Admin />
 					</Route>
 				</Switch>
 			</Router>

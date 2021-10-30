@@ -6,8 +6,7 @@ let productController = {
 	getProducts: async (req, res) => {
 		try {
 			let _id = req.params._id;
-
-			await Category.findOne({ _id })
+			Category.findOne({ _id })
 				.populate({ path: 'PRODUCTS', populate: { path: 'TAGS' } })
 				.populate({ path: 'PRODUCTS', populate: { path: 'CATEGORIES' } })
 				.populate('SUB_CATEGORIES')
